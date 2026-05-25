@@ -33,6 +33,10 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' \
     /etc/apache2/apache2.conf \
     /etc/apache2/conf-available/*.conf
 
-EXPOSE 80
+# SQLite setup + migrate + seed
+RUN touch /var/www/html/database/database.sqlite
+RUN php artisan migrate --force
+RUN php artisan db:seed --force
 
+EXPOSE 80
 CMD ["apache2-foreground"]
