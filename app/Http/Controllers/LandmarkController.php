@@ -58,17 +58,19 @@ class LandmarkController extends Controller
 
     public function favorites()
     {
-        // ✅ Make sure session is started
-        if (!session()->isStarted()) {
-            session()->start();
-        }
+    if (!session()->isStarted()) {
+        session()->start();
+    }
 
-        $sessionId = session()->getId();
+    $sessionId = session()->getId();
 
-        $landmarks = Landmark::whereHas('favorites', function ($q) use ($sessionId) {
-            $q->where('session_id', $sessionId);
-        })->get();
+    // Debug — tan-awa ang session ID
+    \Log::info('Favorites session ID: ' . $sessionId);
 
-        return view('favorites', compact('landmarks'));
+    $landmarks = Landmark::whereHas('favorites', function ($q) use ($sessionId) {
+        $q->where('session_id', $sessionId);
+    })->get();
+
+    return view('favorites', compact('landmarks'));
     }
 }
