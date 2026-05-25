@@ -561,7 +561,13 @@ $relatedImages = [
 </div>
 @endif
 @endsection
-
+{{-- SWIPE INDICATOR --}}
+<div id="swipe-indicator"
+     class="fixed bottom-24 left-1/2 -translate-x-1/2 z-50
+            bg-gray-900/80 text-white text-sm font-semibold
+            px-5 py-2 rounded-full opacity-0 transition-opacity duration-300
+            pointer-events-none backdrop-blur-sm">
+</div>
 
 @push('scripts')
 
@@ -805,12 +811,6 @@ document.getElementById('map-modal')?.addEventListener('click', function(e) {
     if (e.target === this) closeMap();
 });
 @endif
-{{-- SWIPE INDICATOR --}}
-<div id="swipe-indicator"
-     class="fixed bottom-24 left-1/2 -translate-x-1/2 z-50
-            bg-gray-900/80 text-white text-sm font-semibold
-            px-5 py-2 rounded-full opacity-0 transition-opacity duration-300
-            pointer-events-none backdrop-blur-sm">
-</div>
+
 </script>
 @endpush

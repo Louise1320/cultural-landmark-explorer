@@ -9,12 +9,12 @@
     "orientation": "portrait",
     "icons": [
         {
-            "src": "/images/philippines.png",
+            "src": "/images/philippines.jpg",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "/images/cambodia.png",
+            "src": "/images/cambodia.jpg",
             "sizes": "512x512",
             "type": "image/png"
         }
